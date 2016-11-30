@@ -149,11 +149,13 @@ function processMessage($message) {
     $text = $message['text'];
 
     if (strpos($text, "/start") === 0) {
-      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\n ما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس او و سنگ کاغذ قیچی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
+      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\nما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس اوی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
             "inline_keyboard"=>array(
-			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/msmsepehr")),
-				array(array("text"=>"مشارکت کننده","url"=>"https://telegram.me/RaminaO_O")),
-			    array(array("text"=>"بازی XO","switch_inline_query"=>md5(date("YMDms"))),array("text"=>"سنگ کاغذ قیچی (به زودی)","callback_data"=>"m"))
+			    array(array("text"=>"طراح","url"=>"https://telegram.me/neder_ir_niakan")),
+
+			    array(array("text"=>"بازی کن!","switch_inline_query"=>md5(date("YMDms")))),
+				
+
 			)
 		)));
     } 
@@ -188,7 +190,7 @@ function callbackMessage($callback){
 	  if(strpos($data, "play") === 0){
 		  $data=explode("_",$data);
 		  if($data[1]==$pv_id){
-			  apiRequest("answerCallbackQuery",array('callback_query_id'=>$callback_id,'text'=>"شما آغاز کننده ی این بازی هستید بنابراین باید یکی از دوستانتان روی دگمه کلیک کنه!",'show_alert'=>false));
+			  apiRequest("answerCallbackQuery",array('callback_query_id'=>$callback_id,'text'=>"شما آغاز کننده ی این بازی هستید بنابراین باید یکی از دوستانتان روی دکمه کلیک کنه!",'show_alert'=>false));
 		      exit;
 		  }
 		  else{
@@ -272,7 +274,7 @@ function callbackMessage($callback){
 			  //Tab End
 			  //NextTurn
 			  
-			  if($Tab[$i][$j]["text"]!=" ") apiRequest("answerCallbackQuery",array('callback_query_id'=>$callback_id,'text'=>"شما نمیتوانید دگمه مورد نظر را انتخاب کنید.",'show_alert'=>false));
+			  if($Tab[$i][$j]["text"]!=" ") apiRequest("answerCallbackQuery",array('callback_query_id'=>$callback_id,'text'=>"شما نمیتوانید دکمه مورد نظر را انتخاب کنید.",'show_alert'=>false));
 			  else{
 				  $Tab[$i][$j]["text"]=$Emoji;
                   //
