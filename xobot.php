@@ -151,8 +151,7 @@ function processMessage($message) {
     if (strpos($text, "/start") === 0) {
       apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\nما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس اوی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
             "inline_keyboard"=>array(
-			    array(array("text"=>"طراح","url"=>"https://telegram.me/neder_ir_niakan")),
-
+			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/nader_ir_niakan")),
 			    array(array("text"=>"بازی کن!","switch_inline_query"=>md5(date("YMDms")))),
 				
 
